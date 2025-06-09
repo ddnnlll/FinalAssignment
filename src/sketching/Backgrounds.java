@@ -21,4 +21,8 @@ public class Backgrounds {
         this.width = image.width;
         this.height = image.height;
     }
+    
+    public void draw(){
+        app.image(image, 0, 0, app.width, app.height);
+    }
 }

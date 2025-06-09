@@ -11,7 +11,7 @@ import processing.core.PImage;
  *
  * @author dnll5
  */
-public class Xiaojie {
+public class Person {
     int x;
     int y;
     private int speed;
@@ -19,7 +19,7 @@ public class Xiaojie {
     private PImage image;
     private int width, height;
     
-    public Xiaojie(PApplet p, int x, int y, int speed, String imagePath){
+    public Person(PApplet p, int x, int y, int speed, String imagePath){
         this.app = p;
         this.x = x;
         this.y = y;
@@ -36,6 +36,15 @@ public class Xiaojie {
 
     public void draw() {
         app.image(image, x, y);
-
+    }
+    
+    public boolean isCollidingWith(Person other){
+        boolean isLeftOfOtherRight = x < other.x + other.width;
+        boolean isRightOfOtherLeft = x + width > other.x;
+        boolean isAboveOtherBottom = y < other.y + other.height;
+        boolean isBelowOtherTop = y + height > other.y;
+        
+        return isLeftOfOtherRight && isRightOfOtherLeft
+                && isAboveOtherBottom && isBelowOtherTop;
     }
 }
