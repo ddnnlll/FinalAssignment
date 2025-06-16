@@ -15,6 +15,11 @@ public class Backgrounds {
     private PImage image;
     private int width, height;
     
+    /**
+     * Constructor for Backgrounds class
+     * @param p PApplet sketch
+     * @param imagePath FIle path for image
+     */
     public Backgrounds(PApplet p, String imagePath){
         this.app = p;
         this.image = app.loadImage(imagePath);
@@ -22,6 +27,9 @@ public class Backgrounds {
         this.height = image.height;
     }
     
+    /**
+     * Draws background
+     */
     public void draw(){
         app.image(image, 0, 0, app.width, app.height);
     }
