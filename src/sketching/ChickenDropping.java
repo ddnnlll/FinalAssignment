@@ -36,6 +36,7 @@ public class ChickenDropping {
     
     /**
      * Set default image
+     * @param img def image
     */
     public static void setDefaultImage(PImage img){
         defaultImg = img;

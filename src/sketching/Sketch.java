@@ -31,7 +31,7 @@ public class Sketch extends PApplet{
     // Game variables
     private boolean minigameStart = false;
     private final ArrayList<ChickenDropping> droppings = new ArrayList<>();
-    private int collectedCount = 0;
+    private static int collectedCount = 0;
     private PImage poopImage;
     private int timer;
     
@@ -133,6 +133,7 @@ public class Sketch extends PApplet{
             b1.draw();
             rice.draw();
             character2.draw();
+            // Movement
             if (keyPressed) {
                 if (keyCode == LEFT) {
                     character1.move(-6, 0);
@@ -324,7 +325,7 @@ public class Sketch extends PApplet{
                 character1.draw();
             // If she's transformed, draw monkey
             } else if (monkey != null){
-                monkey.draw();
+                transform.draw();
             }
             
             // Dialogue for scene
@@ -333,8 +334,8 @@ public class Sketch extends PApplet{
             } else {
                 if(transform == null) {
                     // Replace Xiaojie with a monkey
-                    transform = new Monkey(this, character1.x, character1.y, 0, "images/monkey.png");
-                    transform.draw();
+                    Person hairyMonkey = new Monkey(this, character1.x, character1.y, 0, "images/monkey.png");
+                    transform = (Monkey) hairyMonkey;
                     character1 = null; // Remove Xiaojie
                 }
             transform.draw();
@@ -349,7 +350,7 @@ public class Sketch extends PApplet{
             background(30);
             fill(255);
             textSize(40);
-            this.text("The End!", width / 2, height / 2);
+            this.text("The End!", width / 2 - 100, height / 2);
         }
 }
     
